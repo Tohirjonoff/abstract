@@ -1,0 +1,29 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+
+<div class="content">
+<div class="clearfix">
+ <div class="col-lg-6 mt-3">
+     <div class="card p-4 ">
+         {% include '../components/msg.html' %}
+    <h2>Kurs Tahrirlash</h2>
+
+  <div class="card-body card-block">
+      <form action="{% url 'update_course' %}"  method="post">
+          {% csrf_token %}
+        <div class="form-group">
+            <label for="">Kurs Nomi</label>
+            <input type="text" name="course_name" value=" {{ course.name }} "  placeholder="kurs nomi..." required class="form-control">
+            <input type="hidden" name="id" value=" {{ course.id }} "  required class="form-control">
+        </div>
+          <div class="form-group">
+              <button class="btn btn-success">Kurs yangilash</button>
+          </div>
+      </form>
+        </div>
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
